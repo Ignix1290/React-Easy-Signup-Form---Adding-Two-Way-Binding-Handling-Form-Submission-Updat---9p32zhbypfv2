@@ -6,7 +6,8 @@ const App = () => {
   const name = useRef();
   const email = useRef();
   const password = useRef();
-  function validate() {
+  function validate(e) {
+    e.preventDefault();
     let data = {
       name: name.current.value,
       email: email.current.value,
@@ -30,7 +31,7 @@ const App = () => {
       { error !== null && error.password !== undefined && <div className='error'>{error.password}</div>}
       <label htmlFor='consent'>Consent</label>
       <input id='consent' type='checkbox'></input><br></br>
-      <button onClick={validate} type='button'>Signup</button>
+      <button onClick={validate} type='submit'>Signup</button>
       </form>
     </div>
   )
